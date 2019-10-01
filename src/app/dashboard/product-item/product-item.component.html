@@ -1,0 +1,29 @@
+<div class="product">
+  <div class="imgWrapper">
+    <img [src]= 'productData.imgPath' alt="pizza1">
+  </div>
+
+  <div class="productDescription">
+    <div class="productInfoAndPrice">
+      <div class="productWeight">{{ productData.productWeight }} gram {{ productData.productSize }} sm</div>
+      <div class="prPrice">{{ productData.productPrice }} $</div>
+    </div>
+  
+    <div class="productTitle"><h4>{{ productData.productTitle }}</h4></div>
+    <div class="ingredients">{{ productData.productDescription }}</div>
+  </div>
+
+  <div class="addToCartWrapper" [ngStyle]="{'background-color': success ? 'green' : 'red'}">
+    <div class="productQuantity">
+     <!-- - 1 +-->
+    </div>
+
+    <div class="addToCart" (click)="addProductToCart()">
+      {{ success ? 'Product is added!': 'Add To Cart'}}
+    </div>
+
+    <div class="productPrice" *ngIf="!success">
+      {{ productData.productPrice }} $
+    </div>
+  </div>
+</div>
